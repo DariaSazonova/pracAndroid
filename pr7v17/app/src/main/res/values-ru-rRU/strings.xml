@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">pr7.v17</string>
-    <string name="Mul">Умножить</string>
-    <string name="Div">Разделить</string>
-    <string name="NullInputValues">Не все поля заполнены</string>
-    <string name="NullValues">В числителе или знаменателе введен 0</string>
-</resources>
