@@ -1,2 +1,2 @@
 # pracAndroid
-Практические работы по Мобильной разраьотке в Android Studio на Kotlin 
+Практические работы по Мобильной разработке в Android Studio на Kotlin 
