@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">pr10</string>
+    <string name="calculate">Рассчитать</string>
+    <string name="stop">Стоп</string>
+    <string name="Incorrectnum">Неправильное число</string>
+</resources>
