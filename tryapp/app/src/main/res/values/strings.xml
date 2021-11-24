@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">tryapp</string>
+    <string name="Mul">Mul</string>
+    <string name="Div">Div</string>
+    <string name="NullInputValues">There are empty field</string>
+    <string name="NullValues">Don\'t use 0 in denomerator and numerator</string>
+    <string name="divZero">Can\'t be divided by 0</string>
+    <string name="ManyNum">Too many numbers</string>
+</resources>
