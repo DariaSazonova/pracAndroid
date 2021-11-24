@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">pr13</string>
+    <string name="error">Error! Check internet connection</string>
+    <string name="Err">\"Error \"</string>
+    <string name="facts">Facts</string>
+
+</resources>

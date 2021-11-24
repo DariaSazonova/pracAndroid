@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">pr13</string>
+    <string name="error">Ошибка! Проверьте интернет-соединение</string>
+    <string name="Err">\"Ошибка \"</string>
+    <string name="facts">Факты</string>
+
+</resources>
