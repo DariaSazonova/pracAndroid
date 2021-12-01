@@ -1,6 +1,8 @@
 package com.example.pr13
 
 import androidx.room.*
+import org.junit.Assert
+import org.junit.Test
 
 @Entity
 data class LocalModel(
@@ -28,3 +30,4 @@ interface LocalDao {
 abstract class DataBase : RoomDatabase() {
     abstract fun localDao() : LocalDao
 }
+

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Adder</string>
+    <string name="nunber_1">Nunber 1</string>
+    <string name="number_2">Number 2</string>
+    <string name="add">add</string>
+    <string name="WrongSecondNum">Error in second number</string>
+    <string name="WrongFirstNum">Error in first number</string>
+</resources>

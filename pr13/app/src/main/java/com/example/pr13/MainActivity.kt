@@ -13,11 +13,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.junit.Assert
+import org.junit.Test
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -101,6 +104,14 @@ class MainActivity : AppCompatActivity() {
                     }
             }
         }
+    }
+    @Test
+    fun test1() {
+        var lm = LocalModel("text", "cat")
+        var db: DataBase? = Room.databaseBuilder(applicationContext, DataBase::class.java, "database").build()
+        db?.localDao()?.insert(lm)
+        var list = db?.localDao()?.getAll()?.get(1)
+        Assert.assertEquals(lm, list)
     }
 
     override fun onPause() {

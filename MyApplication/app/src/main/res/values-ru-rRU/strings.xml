@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Складыватель</string>
+    <string name="nunber_1">Число 1</string>
+    <string name="number_2">Число 2</string>
+    <string name="add">"Сложить "</string>
+    <string name="WrongSecondNum">Ошибка во втором числе</string>
+    <string name="WrongFirstNum">Ошибка в первом числе</string>
+</resources>
