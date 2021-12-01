@@ -7,4 +7,5 @@
     <string name="NullValues">В числителе или знаменателе введен 0</string>
     <string name="divZero">Нельзя делить на 0</string>
     <string name="ManyNum">Слишком много цифр ввели</string>
+    <string name="send">Отправить</string>
 </resources>

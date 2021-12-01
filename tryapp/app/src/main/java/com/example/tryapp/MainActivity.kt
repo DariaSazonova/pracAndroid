@@ -1,11 +1,16 @@
 package com.example.tryapp
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.room.Room
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -92,16 +97,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var denominator2:EditText
     private lateinit var denominatorRes:TextView
     private lateinit var buttonMul:Button
+    private lateinit var buttonSendText:Button
     private lateinit var buttondiv:Button
     private lateinit var db:DataBase
-
-
 
     override fun onStart() {
         super.onStart()
         CoroutineScope(Dispatchers.Main).launch {
             withContext(Dispatchers.IO) {
-                var viewData = db.localDao().getAll()
+                val viewData = db.localDao().getAll()
                 if(viewData!=null){
                     wholeFractionRes.text = viewData.wholeRes
                     denominatorRes.text = viewData.denominatorRes
@@ -124,7 +128,7 @@ class MainActivity : AppCompatActivity() {
         super.onStop()
         CoroutineScope(Dispatchers.Main).launch {
             withContext(Dispatchers.IO) {
-                var addData = LocalModel(
+                val addData = LocalModel(
                     wholeFraction1.text.toString(),
                     denominator1.text.toString(),
                     numerator1.text.toString(),
@@ -145,17 +149,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        wholeFraction1 = findViewById<EditText>(R.id.editWholeFraction1)
-        wholeFraction2 = findViewById<EditText>(R.id.editWholeFraction2)
-        wholeFractionRes = findViewById<TextView>(R.id.editWholeFractionRes)
-        numerator1 = findViewById<EditText>(R.id.editNumerator1)
-        numerator2 = findViewById<EditText>(R.id.editNumerator2)
-        numeratorRes = findViewById<TextView>(R.id.editNumeratorRes)
-        denominator1 = findViewById<EditText>(R.id.editDenomirator1)
-        denominator2 = findViewById<EditText>(R.id.editDenomirator2)
-        denominatorRes = findViewById<TextView>(R.id.editDenomiratorRes)
-        buttonMul = findViewById<Button>(R.id.buttonMul)
-        buttondiv = findViewById<Button>(R.id.buttonDil)
+        wholeFraction1 = findViewById(R.id.editWholeFraction1)
+        wholeFraction2 = findViewById(R.id.editWholeFraction2)
+        wholeFractionRes = findViewById(R.id.editWholeFractionRes)
+        numerator1 = findViewById(R.id.editNumerator1)
+        numerator2 = findViewById(R.id.editNumerator2)
+        numeratorRes = findViewById(R.id.editNumeratorRes)
+        denominator1 = findViewById(R.id.editDenomirator1)
+        denominator2 = findViewById(R.id.editDenomirator2)
+        denominatorRes = findViewById(R.id.editDenomiratorRes)
+        buttonMul = findViewById(R.id.buttonMul)
+        buttondiv = findViewById(R.id.buttonDil)
+        buttonSendText =findViewById(R.id.buttonSendText)
         db = Room.databaseBuilder(this, DataBase::class.java, "database").build()
 
 
@@ -166,7 +171,9 @@ class MainActivity : AppCompatActivity() {
         denominatorRes.text = null
 
 
-
+        if (savedInstanceState != null){
+            wholeFractionRes.text = savedInstanceState.getString(RESULT)
+        }
 
         buttonMul.setOnClickListener {
             if(wholeFraction1.length()<5 && wholeFraction2.length()<5 && numerator1.length()<5 && numerator2.length()<5&& denominator1.length()<5&& denominator2.length()<5 ) {
@@ -239,7 +246,22 @@ class MainActivity : AppCompatActivity() {
 
             }else  Toast.makeText(this, getString(R.string.ManyNum), Toast.LENGTH_SHORT).show()
         }
+        buttonSendText.setOnClickListener { //pr 11.1
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            val res = wholeFractionRes.text.toString() + " " + numeratorRes.text.toString() +"/" +denominatorRes.text.toString()
+            intent.putExtra(Intent.EXTRA_TEXT,res )
+            intent.type = "text/plain"
+            //Окно выбор
+            val intentCreateChooser = Intent.createChooser(intent, null)
+            startActivity(intentCreateChooser)
+        }
 
+
+    }
+
+    companion object{
+        const val RESULT = "RESULT"
     }
 
 }

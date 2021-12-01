@@ -6,4 +6,5 @@
     <string name="NullValues">Don\'t use 0 in denomerator and numerator</string>
     <string name="divZero">Can\'t be divided by 0</string>
     <string name="ManyNum">Too many numbers</string>
+    <string name="send">Send</string>
 </resources>
