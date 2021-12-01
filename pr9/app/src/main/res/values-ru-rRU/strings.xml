@@ -1,3 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">pr9</string>
+    <string name="add">Добавить</string>
+    <string name="edit">Редактировать</string>
+    <string name="delete">Удалить</string>
+    <string name="sort">Сортировать</string>
+    <string name="search">Поиск</string>
+    <string name="print">Печать</string>
+    <string name="hall">Зал</string>
+    <string name="cinema">Кинотеатр</string>
+    <string name="film">Фильм</string>
+    <string name="time">Время</string>
+    <string name="save">Сохранить</string>
+    <string name="date">Дата</string>
+    <string name="enter_row">Введите строку</string>
+    <string name="searching_string">Строка для поиска</string>
+    <string name="del">Удалить</string>
+    <string name="enterEdit">Введите столбец для редактирования</string>
+    <string name="entersort">Введите столбец для сортировки</string>
+    <string name="entersearch">Введите столбец для поиска</string>
+    <string name="notIndex">Нет такого индекса</string>
+    <string name="wrongString">Какое-то поле  заполнено неправильно.</string>
+    <string name="nullString">Какое-то поле не заполнено.</string>
+    <string name="EnterDel">Введите столбец для удаления</string>
 </resources>
